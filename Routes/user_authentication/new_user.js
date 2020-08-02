@@ -71,6 +71,7 @@ function completeRegistration(callback){
             console.log(err)
            
             callback(null, false)
+            
         } else {
             console.log("true 2")
             callback(null, true)
