@@ -7,13 +7,13 @@ let app = require('express')(),
     path = require('path');
 
 let test = require('./Routes/test')
-
+let register = require('./Routes/user_authentication/new_user')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
     
 app.use(cors());
 app.use('/test', test)
-
+app.use('/register_user',register)
 
 
 app.use(function(req, res, next) {
