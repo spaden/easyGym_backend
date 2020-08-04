@@ -6,6 +6,22 @@ let express = require('express'),
 var user={}
 var userDet={}    
 
+router.get('/testing',(req,res)=>{
+    sel= "two"
+    console.log("ff")
+    var sql = `insert into test (${sel}) values ('selected');`
+    conn.query(sql, function(err, result, fields) {
+        if (err) {
+            console.log(err)
+            res.send(JSON.stringify({ result: "failed" }))
+        } else {
+            console.log("true 1")
+            res.send(JSON.stringify({ result: "passed" }))
+        }
+
+    });
+})
+
 router.post('/google_auth', (req,res)=> {
     user = req.body
     console.log(req.body)
