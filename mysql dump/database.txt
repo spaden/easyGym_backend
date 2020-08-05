@@ -1,0 +1,45 @@
+create table user_login (
+id int primary key auto_increment not null,
+googleId varchar(30),
+user_name varchar(300),
+firstName varchar(300),
+lastName varchar(300),
+photoUrl text,
+email text,
+provider varchar(300),
+registration_completed varchar(2) default "N");
+
+alter table user_login add column registration_completed varchar(2) default "N";
+
+ create table user_phone_details (
+id int primary key auto_increment not null,
+googleId varchar(30),
+phone_number int(25),
+location text);
+
+ create table gymList (
+id int primary key auto_increment not null, gymname text,
+location json, contactInfo json, gymId int(30),
+price json, photos json, slots json,
+additionalInfo json);
+
+ create table gymSLOTS (
+ id int primary key auto_increment not null,
+ gymId int(25), fourfiveam int(3), fivesixam int(3), sixsevenam int(3), seveneightam int(3),
+ eightnineam int(3),ninetenam int(3), tenelevenam int(3),eleventwelveam int(3),
+ twelveonepm int(3), onetwopm int(3), twothreepm int(3), threefourpm int(3),fourfivepm int(3),
+ fivesixpm int(3), sixsevenpm int(3),seveneightpm int(3),eightninepm int(3), ninetenpm int(3));
+ 
+ 
+ 
+	
+create index googleId on user_phone_details(googleId); 
+
+select * from user_login;
+select * from user_phone_details;
+select * from test;
+truncate user_login;
+truncate user_phone_details;
+truncate gymlist;
+
+select * from gymlist;
