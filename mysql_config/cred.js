@@ -4,7 +4,8 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "root",
-  database: "easygym"
+  database: "easygym",
+  multipleStatements: true
 });
 
 module.exports = con;
