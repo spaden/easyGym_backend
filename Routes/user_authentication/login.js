@@ -28,6 +28,24 @@ router.post('/',(req,res)=> {
     });
 })
 
+router.post('/test',(req,res)=> {
+    res.send("okay")
+})
+
+router.post('/getUserDetails',(req,res)=> {
+    var user = req.body
+    var sql = `select * from fullUserDetails where googleId=${user.googleId};`
+    conn.query(sql,function(err,data,fields){
+        if (err) {
+            console.log(err)
+            res.send(JSON.stringify({ result: "failed" }))
+        } else {
+            console.log("Slot booked")
+            res.send(JSON.stringify({ result: "passed",data: data  }))
+        }
+    })
+})
+
 
 
 
