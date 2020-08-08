@@ -14,23 +14,37 @@ alter table user_login add column registration_completed varchar(2) default "N";
  create table user_phone_details (
 id int primary key auto_increment not null,
 googleId varchar(30),
-phone_number int(25),
+phone_number BIGINT,
 location text);
+
+create view fullUserDetails as 
+select login.googleId,login.user_name, login.photoUrl, login.email, phone.phone_number, phone.location 
+    from user_login as login INNER JOIN user_phone_details as phone on login.googleID = phone.googleId;
+    
+select * from fullUserDetails;
 
  create table gymList (
 id int primary key auto_increment not null, gymname text,
-location json, contactInfo json, gymId int(30),
+location json, contactInfo json, gymId BIGINT,
 price json, photos json, slots json,
 additionalInfo json);
 
  create table gymSLOTS (
  id int primary key auto_increment not null,
- gymId int(25), fourfiveam int(3), fivesixam int(3), sixsevenam int(3), seveneightam int(3),
+ gymId BIGINT, fourfiveam int(3), fivesixam int(3), sixsevenam int(3), seveneightam int(3),
  eightnineam int(3),ninetenam int(3), tenelevenam int(3),eleventwelveam int(3),
  twelveonepm int(3), onetwopm int(3), twothreepm int(3), threefourpm int(3),fourfivepm int(3),
  fivesixpm int(3), sixsevenpm int(3),seveneightpm int(3),eightninepm int(3), ninetenpm int(3));
  
+ create table current_bookings_on_hold (
+ id int primary key auto_increment not null,
+ gymId bigint, userDetails json, bookedSlot varchar(50));
  
+ 
+ select * from current_bookings_on_hold;
+ 
+ 	
+create index googleId on user_phone_details(googleId); 
  
 	
 create index googleId on user_phone_details(googleId); 
