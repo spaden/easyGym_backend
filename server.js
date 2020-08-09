@@ -9,8 +9,10 @@ let app = require('express')(),
 let test = require('./Routes/test')
 let register = require('./Routes/user_authentication/new_user')
 let login_user = require('./Routes/user_authentication/login')
+let gymOwnerAuth = require('./Routes/gymOwnerAuthentication/login')
 let gymList = require('./Routes/Gym_details/gymList')
 let gymSlots = require('./Routes/Gym_details/gymSlots')
+let gymOwner = require('./Routes/GymOwnerApi/gymDet')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -19,8 +21,10 @@ app.use(cors());
 app.use('/test', test)
 app.use('/register_user',register)
 app.use('/authorize_user',login_user)
+app.use('/authorize_gymOwner',gymOwnerAuth)
 app.use('/getGyms',gymList)
 app.use('/getGym',gymSlots)
+app.use('/gymOwner',gymOwner)
 
 app.use(function(req, res, next) {
     next();
