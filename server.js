@@ -13,6 +13,7 @@ let gymOwnerAuth = require('./Routes/gymOwnerAuthentication/login')
 let gymList = require('./Routes/Gym_details/gymList')
 let gymSlots = require('./Routes/Gym_details/gymSlots')
 let gymOwner = require('./Routes/GymOwnerApi/gymDet')
+let upload = require('./Routes/uploadGym/upload')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,6 +26,7 @@ app.use('/authorize_gymOwner',gymOwnerAuth)
 app.use('/getGyms',gymList)
 app.use('/getGym',gymSlots)
 app.use('/gymOwner',gymOwner)
+app.use('/upload',upload)
 
 app.use(function(req, res, next) {
     next();

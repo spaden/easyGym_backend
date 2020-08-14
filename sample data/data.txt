@@ -1,0 +1,102 @@
+{
+   "gymname":"Body Fit",
+   "gymId":6300269132,
+   "location":{
+      "mainArea":"Serilingampally",
+      "fullAddress":{
+         "gymname":"New Age Gym",
+         "name_of_street":"Doyens Township",
+         "landmark":"opp. Allind",
+         "area":"Serilingampally",
+         "postal_code":500019,
+         "city":"Hyderabad",
+         "googlePinUrl":"https://www.google.com/maps/dir//Serilingampally,+Hyderabad,+Telangana/@17.4743757,78.2449891,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bcb92c669f5354f:0x8bc6f68f0f90ef21!2m2!1d78.3158338!2d17.4836979"
+      }
+   },
+   "contactInfo":{
+      "phoneNumbers":[
+         {
+            "number":6300269132
+         },
+         {
+            "number":9032104571
+         }
+      ],
+      "email":"kalyanspade.n@gmail.com"
+   },
+   "photos":{
+      "listPhoto":"http://localhost:3000/images/GymImages/505908441114/main.jpg",
+      "landscapePhotos":[
+         "http://localhost:3000/images/GymImages/505908441114/one.jpg",
+         "http://localhost:3000/images/GymImages/505908441114/two.jpg",
+         "http://localhost:3000/images/GymImages/505908441114/three.jpg",
+         "http://localhost:3000/images/GymImages/505908441114/four.jpg"
+      ]
+   },
+   "price":{
+      "monthly":1200,
+      "yearly":6000
+   },
+   "slots1":[
+      "4-5am",
+      "5-6am",
+      "6-7am",
+      "7-8am",
+      "8-9am",
+      "9-10am",
+      "10-11am",
+      "11-12am",
+      "1-2pm",
+      "2-3pm",
+      "3-4pm",
+      "4-5pm",
+      "5-6pm",
+      "6-7pm",
+      "7-8pm",
+      "8-9pm",
+      "9-10pm"
+   ],
+   "additionalInfo":{
+      "youtubeUrl":"https://www.youtube.com/watch?v=X_9VoqR5ojM"
+   },
+    "slots2":[
+      {
+         "name":"fourfiveam",
+         "capacity":10
+      },
+      {
+         "name":"fivesixam",
+         "capacity":10
+      },
+      {
+         "name":"sixsevenam",
+         "capacity":10
+      },
+      {
+         "name":"sixsevenpm",
+         "capacity":10
+      }
+   ],
+   "password":"Venkateshwara1991",
+   "slots3":[
+         {
+             "slotTime":"4 - 5 am",
+             "capacity":10
+         },
+         {
+             "slotTime":"5 - 6 am",
+             "capacity":10
+         },
+         {
+             "slotTime":"6 - 7 am",
+             "capacity":10
+         },
+         {
+             "slotTime":"6 - 7 pm",
+             "capacity":10
+         }
+
+    ],
+    
+
+}

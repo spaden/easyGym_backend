@@ -38,15 +38,34 @@ additionalInfo json);
  
  create table current_bookings_on_hold (
  id int primary key auto_increment not null,
- gymId bigint, userDetails json, bookedSlot varchar(50));
+ gymId bigint, userDetails json, bookedSlot varchar(50),
+ status char default 'P');
  
+
+ 
+ create table gymOwnerLogin (
+ id int primary key auto_increment not null,
+ gymId BIGINT, 
+ password json);
+ 
+ create table confirmedUsers(
+ id int primary key auto_increment not null,
+ gymId bigint,
+ users json default "[]");
+ 
+create table slotManagement(
+id int primary key auto_increment not null,
+gymId bigint,
+slots json default "{}");
+
+ 
+ select * from gymOwnerLogin;
+ truncate gymOwnerLogin;
  
  select * from current_bookings_on_hold;
  
+ update current_bookings_on_hold set status='P'  where gymId=9032104571;
  	
-create index googleId on user_phone_details(googleId); 
- 
-	
 create index googleId on user_phone_details(googleId); 
 
 select * from user_login;
@@ -55,5 +74,25 @@ select * from test;
 truncate user_login;
 truncate user_phone_details;
 truncate gymlist;
+truncate gymSLOTS;
 
 select * from gymlist;
+
+select * from gymslots;
+
+create table test(
+id int primary key auto_increment,
+num int);
+
+
+insert into test (num) values (20);
+select * from test;
+delete from test where id=2;
+
+
+insert into confirmedusers (gymId) values (9032104571);
+truncate confirmedusers;
+select * from confirmedusers;
+
+SET SQL_SAFE_UPDATES = 0;
+

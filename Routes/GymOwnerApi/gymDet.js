@@ -64,10 +64,26 @@ router.post("/updateConfirmedUsers",(req,res)=> {
 router.post("/updateConfirmedSlotUsers",(req,res)=> {
     var dat = req.body
     console.log(dat)
-    var sql =`start transaction;
+    
+
+    var sql1 =`start transaction;
               update confirmedUsers set users='${JSON.stringify(dat.users)}' where gymId=${dat.gymId};
               update current_bookings_on_hold set status='${dat.status}' where id=${dat.id};
               commit;`
+
+    var sql2 =`start transaction;
+               select * from gymSLOTS  where gymId=${dat.gymId} for update;
+               update current_bookings_on_hold set status='D' where id=${dat.id};
+               update gymSLOTS set ${dat.slot} = ${dat.slot}+1  where gymId=${dat.gymId} and ${dat.slot}<=${dat.capacity};
+               commit;
+              `
+    var sql=''
+    if(dat.status == 'D'){
+        sql = sql2
+    }else {
+        sql = sql1
+    }
+
     conn.query(sql,function(err,data,fields){
         if (err) {
             console.log(err)
