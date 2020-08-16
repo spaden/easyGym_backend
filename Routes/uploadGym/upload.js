@@ -144,6 +144,22 @@ router.post("/gymDetails",(req,res)=>{
 })
 
 
+router.post("/enrollCustomer",(req,res)=>{
+    var data= req.body
+    var hw=encrypt(data.password)
+    var sql = `insert into gymOwnerLogin (gymId,password) values (${data.gymId},'${JSON.stringify(hw)}');`
+    conn.query(sql,function(err,data,fields){
+        if (err) {
+            console.log(err)
+            res.send(JSON.stringify({ result: "failed" }))
+        } else {
+            console.log("Slot booked")
+            res.send(JSON.stringify({ result: "passed"}))
+        }
+    })
+
+})
+
 
 
 
